@@ -21,5 +21,6 @@ urlpatterns = [
       url(r'^$', views.index, name='index'),
       #url(r'^store/', views.store, name='store'),
       url(r'^store/', include('store.urls'), name='store'),
+      #url(r'^admin/', include(admin.site.urls)),
       url(r'^admin/', admin.site.urls),
 ]

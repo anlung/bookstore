@@ -31,10 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.sites',
+    'django.contrib.admin',
+    #'django.contrib.sites',
     #'registration',
     'django.contrib.auth',
-    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -123,5 +123,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #Registration
-ACCOUNT_ACTIVATION_DAYS=7
-REGISTRATION_AUT_LOGIN= True
+#ACCOUNT_ACTIVATION_DAYS=7
+#REGISTRATION_AUT_LOGIN= True
