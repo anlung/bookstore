@@ -24,22 +24,24 @@ SECRET_KEY = '^&(%fo@3tn$nmoajqk+nh6oc*8$e_z-we2shxc=c$#&6lj6y#d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+#DEBUG = False
 ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     #'django.contrib.sites',
-    #'registration',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'social.apps.django_app.default',
+    'social_django',
     'store',
+    'registration',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'bookstore.urls'
@@ -65,12 +68,22 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
+
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'bookstore.wsgi.application'
+
+AUTHENTICATION_BACKENDS = (
+    #'social.backend.facebook.FacebookOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend')
 
 
 # Database
@@ -123,5 +136,20 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #Registration
-#ACCOUNT_ACTIVATION_DAYS=7
-#REGISTRATION_AUT_LOGIN= True
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUT_LOGIN = True
+LOGIN_REDIRECT_URL = '/store'
+
+#Email Settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER='anlung8@gmail.com'
+EMAIL_HOST_PASSWORD='s3o2t1ol'
+EMAIL_PORT=587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'anlung8@gmail.com'
+
+
+#social_auth facebook
+SOCIAL_AUTH_FACEBOOK_KEY = '371279253257936'
+SOCIAL_AUTH_FACEBOOK_SECRET = '2ed3a03f99a4eaf013fb22cdb9d04840'

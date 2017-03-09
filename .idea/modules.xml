@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/bookstore.iml" filepath="$PROJECT_DIR$/.idea/bookstore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../bookstore-django2/Projects/bookstore2/.idea/bookstore2.iml" filepath="$PROJECT_DIR$/../../../bookstore-django2/Projects/bookstore2/.idea/bookstore2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../bookstore-django2/Projects/holovaty1/.idea/holovaty1.iml" filepath="$PROJECT_DIR$/../../../bookstore-django2/Projects/holovaty1/.idea/holovaty1.iml" />
     </modules>
   </component>
 </project>
